@@ -31,16 +31,4 @@ class TaskModel extends HiveObject {
     required this.endTime,
     required this.category,
   });
-
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'title': title,
-      'subtitle': subtitle,
-      'locationOrTag': locationOrTag,
-      'startTime': startTime,
-      'endTime': endTime,
-      'catefory': category,
-    };
-  }
 }
