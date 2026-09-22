@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primary = Color(0xFF00897B);
+  static const Color primary = Color(0xFF26A69A);
   static const Color primaryLight = Color(0xFFE0F2F1);
   static const Color primaryDark = Color(0xFF00695C);
 
@@ -120,5 +120,34 @@ class CategoryStyle {
   static CategoryStyle of(BuildContext context, CategoryStyle light, CategoryStyle dark) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return isDark ? dark : light;
+  }
+
+  static CategoryStyle forCategory(BuildContext context, String category) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    switch (category) {
+      case 'دراسي':
+        return isDark ? studyDark : study;
+      case 'كورسات':
+        return isDark ? coursesDark : courses;
+      case 'عمل':
+        return isDark ? workDark : work;
+      case 'تنظيم وقت':
+      default:
+        return isDark ? timeDark : time;
+    }
+  }
+
+  static IconData iconForCategory(String category) {
+    switch (category) {
+      case 'دراسي':
+        return Icons.menu_book_outlined;
+      case 'كورسات':
+        return Icons.ondemand_video_outlined;
+      case 'عمل':
+        return Icons.work_outline;
+      case 'تنظيم وقت':
+      default:
+        return Icons.schedule_outlined;
+    }
   }
 }
